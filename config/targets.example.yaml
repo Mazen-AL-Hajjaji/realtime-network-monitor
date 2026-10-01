@@ -1,0 +1,18 @@
+targets:
+  - name: Example Website
+    url: https://example.com
+    host: example.com
+    port: 443
+    enabled: true
+
+  - name: Localhost FastAPI
+    url: http://127.0.0.1:8000/health
+    host: 127.0.0.1
+    port: 8000
+    enabled: true
+
+  - name: Fake Broken Target
+    url: http://192.0.2.1
+    host: 192.0.2.1
+    port: 9999
+    enabled: true

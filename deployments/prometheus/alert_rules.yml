@@ -1,0 +1,38 @@
+groups:
+  - name: network-monitoring-alerts
+    rules:
+      - alert: TCPTargetDown
+        expr: network_tcp_up == 0
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "TCP target is down"
+          description: "TCP check failed for {{ $labels.target_name }} on {{ $labels.host }}:{{ $labels.port }}."
+
+      - alert: HTTPTargetDown
+        expr: network_http_up == 0
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP target is down"
+          description: "HTTP check failed for {{ $labels.target_name }} at {{ $labels.url }}."
+
+      - alert: HighTCPLatency
+        expr: network_tcp_latency_ms > 300
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High TCP latency detected"
+          description: "{{ $labels.target_name }} TCP latency is above 300 ms."
+
+      - alert: HighHTTPResponseTime
+        expr: network_http_response_time_ms > 1000
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High HTTP response time detected"
+          description: "{{ $labels.target_name }} HTTP response time is above 1000 ms."

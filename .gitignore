@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+*.log
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+realtime/
+.DS_Store
+
+# Private reports and local configuration
+PROJECT_REPORT.md
+*_REPORT.md
+reports/
+config/targets.yaml
+config/*.local.yaml
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Local editor and assistant settings
+.vscode/
+.idea/
+.codex/
+.agents/
